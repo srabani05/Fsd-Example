@@ -1,15 +1,17 @@
-spring:
-  datasource:
-    url: ${MYSQL_MOVIE_DB_URL}
-    username: ${MYSQL_USER}
-    password: ${MYSQL_PASSWORD}
 #spring:
 #  datasource:
-#    driver-class-name: org.h2.Driver
-#    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-#    username: sa
-#    password: sa   
+#    url: ${MYSQL_MOVIE_DB_URL}
+#    username: ${MYSQL_USER}
+#    password: ${MYSQL_PASSWORD}
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa   
   jpa:
    hibernate:
     ddl-auto: update    
    show-sql: true
+server:
+  port: 8081
