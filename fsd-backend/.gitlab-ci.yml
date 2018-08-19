@@ -1,0 +1,27 @@
+image: java:8-jdk
+stages:
+- test
+- build
+services:
+- mysql:5.5
+variables:
+  MYSQL_DATABASE: MovieCruiser
+  MYSQL_MOVIE_DB_URL: jdbc:mysql://mysql/MovieCruiser
+  MYSQL_MOVIE_DB_PASSWORD: root
+  MYSQL_MOVIE_DB_USERNAME: root
+  MYSQL_ROOT_PASSWORD: root
+cache:
+  paths:
+  - .m2/repository
+  - target
+maven-test:
+  image: maven:3-jdk-8
+  stage: test
+  script: mvn test -B
+maven-build:
+  image: maven:3-jdk-8
+  stage: build
+  script: mvn package -B
+  artifacts:
+    paths:
+    - target/*.jar
