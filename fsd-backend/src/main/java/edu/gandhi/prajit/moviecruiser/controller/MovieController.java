@@ -39,7 +39,7 @@ public class MovieController {
 			@ApiResponse(code = 409, message = "Movie Already Exists In Database") })
 	public ResponseEntity<?> createNewMovie(
 			@ApiParam(value = "Movie Request", required = true) @RequestBody final Movie movie) {
-		System.out.println("Movie:createNewMovie:" + movie);
+		System.out.println("Movie:createNewMovie::::" + movie);
 		try {
 			movieService.createNewMovie(movie);
 		} catch (MovieAlredayExistsException exception) {
